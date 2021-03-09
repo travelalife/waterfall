@@ -13,8 +13,13 @@
 
     #waterfall {
         width: 100%;
-        min-height: 1px;
+        min-height: 600px;
+        overflow: auto;
     }
+    /*#waterfall::-webkit-scrollbar {*/
+    /*    width: 5px;  !*滚动条宽度*!*/
+    /*    height: 5px;  !*滚动条高度*!*/
+    /*}*/
 </style>
 <body>
 <div id="waterfall">
@@ -27,21 +32,24 @@
 </div>
 <script>
     // 生成模拟数据
-    let mockData = {
-        data: []
-    };
-    for (let i = 0; i < 10; i++) {
-        mockData.data[i] = {
-            src: 'img/' + Math.ceil(Math.random() * 22) + '.jpg',
-            desc: '图片描述',
-            title: '图片' + Math.ceil(Math.random() * 22)
+    function getData() {
+        let arr = [];
+        for (let i = 0; i < 10; i++) {
+            arr[i] = {
+                src: 'img/' + Math.ceil(Math.random() * 22) + '.jpg',
+                desc: '图片描述',
+                title: '图片' + Math.ceil(Math.random() * 22)
+            }
         }
+
+        return arr;
     }
 
-    Waterfall({
+    var s = new Waterfall({
        container: '#waterfall',
-       imgs: mockData.data
+       imgs: getData()
     });
+
 </script>
 </body>
 
