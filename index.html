@@ -7,14 +7,24 @@
     <script src="js/waterfall.js"></script>
 </head>
 <style>
-    body {
+    html,body {
         margin: 0;
+        height: 100%;
     }
 
     #waterfall {
         width: 100%;
-        min-height: 600px;
+        height: 100%;
+        /*min-height: 200px;*/
         overflow: auto;
+    }
+
+    .waterfall-desc {
+        font-size: 14px;
+        padding: 4px;
+        line-height: 1.2;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #FFF;
     }
     /*#waterfall::-webkit-scrollbar {*/
     /*    width: 5px;  !*滚动条宽度*!*/
@@ -37,7 +47,7 @@
         for (let i = 0; i < 10; i++) {
             arr[i] = {
                 src: 'img/' + Math.ceil(Math.random() * 22) + '.jpg',
-                desc: '图片描述',
+                desc: '这是图片描述 <br>' + new Date(),
                 title: '图片' + Math.ceil(Math.random() * 22)
             }
         }
@@ -46,8 +56,9 @@
     }
 
     var s = new Waterfall({
-       container: '#waterfall',
-       imgs: getData()
+        clsName: 'w-item',
+        container: '#waterfall',
+        imgs: getData()
     });
 
 </script>
