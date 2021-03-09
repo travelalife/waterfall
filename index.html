@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>瀑布流效果</title>
+    <script src="js/waterfall.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    #waterfall {
+        width: 100%;
+        min-height: 1px;
+    }
+</style>
+<body>
+<div id="waterfall">
+<!--    <div class="waterfall-container">-->
+<!--        <div class="waterfall-item">-->
+<!--            <img class="waterfall-img" src="img/1.jpeg" alt="1">-->
+<!--            <span class="waterfall-desc"></span>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<script>
+    // 生成模拟数据
+    let mockData = {
+        data: []
+    };
+    for (let i = 0; i < 10; i++) {
+        mockData.data[i] = {
+            src: 'img/' + Math.ceil(Math.random() * 22) + '.jpg',
+            desc: '图片描述',
+            title: '图片' + Math.ceil(Math.random() * 22)
+        }
+    }
+
+    Waterfall({
+       container: '#waterfall',
+       imgs: mockData.data
+    });
+</script>
+</body>
+
+</html>
